@@ -17,7 +17,7 @@ The skill knows every documented DemoTime action across 15 categories (91 action
 ## Installing
 
 ```sh
-claude plugin install /path/to/this/repo
+claude plugin install marcduiker/demo-time-skill
 ```
 
 Or symlink the skill directly into your user skills folder:
