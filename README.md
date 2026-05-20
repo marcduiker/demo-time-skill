@@ -16,8 +16,11 @@ The skill knows every documented DemoTime action across 15 categories (91 action
 
 ## Installing
 
+Add this repo as a Claude Code plugin marketplace, then install the plugin:
+
 ```sh
-claude plugin install marcduiker/demo-time-skill
+/plugin marketplace add marcduiker/marcduiker-ai-marketplace
+/plugin install demotime-authoring@marcduiker-ai-marketplace
 ```
 
 Or symlink the skill directly into your user skills folder:
@@ -30,6 +33,7 @@ ln -s "$(pwd)/skills/demotime-authoring" ~/.claude/skills/demotime-authoring
 
 ```
 .claude-plugin/plugin.json              # plugin manifest
+.claude-plugin/marketplace.json         # marketplace catalog (single-plugin)
 skills/demotime-authoring/
   SKILL.md                              # always-loaded entry point
   references/                           # on-demand, one per action category + slides

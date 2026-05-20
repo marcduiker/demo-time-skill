@@ -1,0 +1,24 @@
+{
+  "name": "marcduiker-ai-marketplace",
+  "owner": {
+    "name": "Marc Duiker",
+    "url": "https://github.com/marcduiker"
+  },
+  "description": "Marketplace for plugins and skills made by Marc Duiker.",
+  "plugins": [
+    {
+      "name": "demotime-authoring",
+      "source": "./",
+      "description": "Author DemoTime YAML demo scripts (.demo/*.yaml) — generate, edit, and scaffold companion slide/insert files.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Marc Duiker",
+        "url": "https://github.com/marcduiker"
+      },
+      "homepage": "https://demotime.show/",
+      "repository": "https://github.com/marcduiker/demo-time-skill",
+      "license": "MIT",
+      "keywords": ["demotime", "skills", "demo", "vscode", "presentation"]
+    }
+  ]
+}
