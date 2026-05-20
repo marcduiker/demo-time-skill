@@ -1,0 +1,16 @@
+title: Minimal DemoTime example
+description: |
+  Smallest viable demo: opens a single slide in presentation view.
+  Use this as a starting point for short talks or sanity checks.
+
+  Note: DemoTime's countdown timer is started/paused by clicking the
+  status-bar clock — it has no YAML action. If you want a timed pause
+  between moves, use the `waitForTimeout` action from references/time.md.
+version: 3
+scenes:
+  - id: minimal-intro
+    title: Intro
+    moves:
+      - action: setPresentationView
+      - action: openSlide
+        path: .demo/slides/intro.md

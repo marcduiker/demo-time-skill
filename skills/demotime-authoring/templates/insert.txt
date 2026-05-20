@@ -1,0 +1,14 @@
+# DemoTime insert file.
+#
+# This file is referenced by a `patch` action (e.g. `insert`, `replace`) via the
+# `contentPath:` param. DemoTime reads its raw bytes and writes them into the
+# target file at the specified position.
+#
+# Two rules to keep in mind when authoring this file:
+#   1. Indentation must match the surrounding code in the target file. DemoTime
+#      does NOT auto-indent — what's here is what lands in the file.
+#   2. Trailing newlines matter. If you want a blank line after the inserted
+#      block, leave a trailing newline at the bottom of this file.
+#
+# Delete this comment block before using — DemoTime will paste it verbatim
+# otherwise.

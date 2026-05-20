@@ -1,0 +1,93 @@
+title: Code demo example
+description: |
+  End-to-end demo pattern: intro slide → build → run → exercise via HTTP file →
+  live edit (insert + replace) → re-run → stop → cleanup.
+
+  Encodes the repo conventions from the DemoTime authoring skill:
+    - Demo files live in .demo/<topic>.yaml
+    - Slides live in .demo/slides/<name>.md
+    - Code inserts live in .demo/inserts/<NN>-<desc>.txt
+    - A single terminalId ("app-run") is reused across scenes sharing a shell
+    - Audience-visible typing uses character-by-character + 75-100 ms speed
+    - Setup typing uses instant + autoExecute: true
+
+  Note: DemoTime's countdown timer has no YAML action — start/pause it by
+  clicking the status-bar clock. For timed pauses inside the script, use
+  `waitForTimeout` (see references/time.md).
+version: 3
+scenes:
+  - id: code-demo-intro
+    title: Intro
+    moves:
+      - action: setPresentationView
+      - action: openSlide
+        path: .demo/slides/intro.md
+
+  - id: code-demo-build
+    title: Build
+    moves:
+      - action: executeTerminalCommand
+        terminalId: app-run
+        command: npm install
+        insertTypingMode: instant
+        autoExecute: true
+
+  - id: code-demo-run
+    title: Run
+    moves:
+      - action: executeTerminalCommand
+        terminalId: app-run
+        command: npm run dev
+        insertTypingMode: character-by-character
+        insertTypingSpeed: 100
+        autoExecute: true
+
+  - id: code-demo-http-file
+    title: Exercise the API
+    moves:
+      - action: open
+        path: requests.http
+
+  - id: code-demo-edit-insert
+    title: Add the new endpoint
+    moves:
+      - action: open
+        path: src/server.ts
+      - action: insert
+        path: src/server.ts
+        position: "42"
+        contentPath: .demo/inserts/01-new-endpoint.txt
+
+  - id: code-demo-edit-replace
+    title: Tighten the validation
+    moves:
+      - action: replace
+        path: src/server.ts
+        position: "60:65"
+        contentPath: .demo/inserts/02-validation.txt
+
+  - id: code-demo-rerun
+    title: Re-run
+    moves:
+      - action: focusTerminal
+      - action: sendKeybinding
+        keybinding: ctrl+c
+      - action: executeTerminalCommand
+        terminalId: app-run
+        command: npm run dev
+        insertTypingMode: instant
+        autoExecute: true
+
+  - id: code-demo-stop
+    title: Stop
+    moves:
+      - action: focusTerminal
+      - action: sendKeybinding
+        keybinding: ctrl+c
+
+  - id: code-demo-cleanup
+    title: Wrap-up
+    moves:
+      - action: openSlide
+        path: .demo/slides/outro.md
+      - action: unsetPresentationView

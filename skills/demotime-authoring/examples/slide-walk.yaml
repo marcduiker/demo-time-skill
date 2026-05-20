@@ -1,0 +1,62 @@
+title: Slide-walk keynote example
+description: |
+  Slide-only talk pattern. Each scene advances to the next slide.
+  Use as a starting point for a keynote-style talk where there is no live coding.
+
+  Note: DemoTime's countdown timer has no YAML action — start/pause it by
+  clicking the status-bar clock. For timed pauses, use `waitForTimeout`
+  (see references/time.md).
+version: 3
+scenes:
+  - id: slide-walk-title
+    title: Title
+    moves:
+      - action: setPresentationView
+      - action: openSlide
+        path: .demo/slides/01-title.md
+  - id: slide-walk-agenda
+    title: Agenda
+    moves:
+      - action: openSlide
+        path: .demo/slides/02-agenda.md
+  - id: slide-walk-problem
+    title: The problem
+    moves:
+      - action: openSlide
+        path: .demo/slides/03-problem.md
+  - id: slide-walk-approach
+    title: Our approach
+    moves:
+      - action: openSlide
+        path: .demo/slides/04-approach.md
+  - id: slide-walk-demo-intro
+    title: What you're about to see
+    moves:
+      - action: openSlide
+        path: .demo/slides/05-demo-intro.md
+  - id: slide-walk-results
+    title: Results
+    moves:
+      - action: openSlide
+        path: .demo/slides/06-results.md
+  - id: slide-walk-tradeoffs
+    title: Trade-offs
+    moves:
+      - action: openSlide
+        path: .demo/slides/07-tradeoffs.md
+  - id: slide-walk-roadmap
+    title: Roadmap
+    moves:
+      - action: openSlide
+        path: .demo/slides/08-roadmap.md
+  - id: slide-walk-questions
+    title: Q&A
+    moves:
+      - action: openSlide
+        path: .demo/slides/09-questions.md
+  - id: slide-walk-thanks
+    title: Thanks
+    moves:
+      - action: openSlide
+        path: .demo/slides/10-thanks.md
+      - action: unsetPresentationView
