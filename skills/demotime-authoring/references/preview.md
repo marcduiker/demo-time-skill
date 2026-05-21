@@ -34,7 +34,10 @@ Displays slides from a Markdown file in the DemoTime presentation interface.
   slide: 1
 ```
 
-**Notes / gotchas:** Set `customTheme` here once for the whole demo rather than on every slide's frontmatter. See `references/slides-themes.md` for the supported CSS variables.
+**Notes / gotchas:**
+- Set `customTheme` here once for the whole demo rather than on every slide's frontmatter. See `references/slides-themes.md` for the supported CSS variables.
+- A workspace-wide alternative is the `demoTime.customTheme` VS Code setting. If the repo already sets that in `.vscode/settings.json`, prefer leaving the wire-up there and don't also add `customTheme:` to YAML — the two will conflict.
+- CSS file contents are inlined into the webview at panel creation. Edits to the CSS or to the wire-up don't take effect until the slide preview is closed and reopened (or the window is reloaded). See `references/slides-themes.md`.
 
 ---
 
